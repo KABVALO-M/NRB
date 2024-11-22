@@ -1,0 +1,36 @@
+<aside class="w-64 bg-red-600 shadow-md fixed top-[64px] left-0 h-[calc(100vh-64px)] overflow-y-auto">
+    <nav class="px-4 py-8">
+        <ul class="space-y-4">
+            <li>
+                <a href="{% url 'dashboard' %}" class="flex items-center text-white font-semibold hover:bg-red-700 p-2 rounded-lg">
+                    <i class="fas fa-tachometer-alt mr-2"></i> <!-- Dashboard Icon -->
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'users' %}" class="flex items-center text-white font-semibold hover:bg-red-700 p-2 rounded-lg">
+                    <i class="fas fa-users mr-2"></i> <!-- Users Icon -->
+                    Users
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'citizens' %}" class="flex items-center text-white font-semibold hover:bg-red-700 p-2 rounded-lg">
+                    <i class="fas fa-user-check mr-2"></i> <!-- Citizens Icon -->
+                    Citizens
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'deceased_citizens' %}" class="flex items-center text-white font-semibold hover:bg-red-700 p-2 rounded-lg">
+                    <i class="fas fa-user-times mr-2"></i> <!-- Deceased Citizens Icon -->
+                    Deceased Citizens
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}" class="flex items-center text-white font-semibold hover:bg-red-700 p-2 rounded-lg">
+                    <i class="fas fa-sign-out-alt mr-2"></i> <!-- Logout Icon -->
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>

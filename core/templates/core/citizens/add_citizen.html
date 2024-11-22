@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Add Citizen{% endblock %}
+
+{% block content %}
+    <h2 class="text-2xl font-bold text-gray-700 mb-4">Add a New Citizen</h2>
+
+    <!-- Form Container -->
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <form method="post" action="{% url 'add_citizen' %}" class="max-w-2xl">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+            <!-- Loop through the form fields and display them with labels -->
+            {% for field in form %}
+                <div class="mb-4">  <!-- Add bottom margin for spacing -->
+                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">{{ field.label }}</label>
+                    {{ field }}  <!-- This will render the input with the applied Tailwind classes -->
+                    {{ field.errors }}  <!-- Display any errors related to this field -->
+                </div>
+            {% endfor %}
+            
+            <button type="submit" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+                Add Citizen
+            </button>
+        </form>        
+    </div>
+
+{% endblock %}

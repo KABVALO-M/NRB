@@ -1,0 +1,27 @@
+{% load static %}
+<header class="bg-white shadow fixed top-0 left-0 w-full z-10">
+    <div class="mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Left: System Name -->
+        <div class="text-xl font-bold text-blue-600">
+            Your System Name
+        </div>
+
+        <!-- Center: Search Bar -->
+        <div class="w-1/3">
+            <input type="text" placeholder="Search..." 
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Right: Profile Section -->
+        <div class="flex items-center space-x-4">
+            <!-- Profile Image -->
+            <img src="{% static 'path_to_profile_image.jpg' %}" alt="Profile Picture"
+                 class="w-10 h-10 rounded-full object-cover">
+            
+            <!-- Username -->
+            <div class="text-red-700 font-medium">
+                {{ request.user.username }}
+            </div>
+        </div>
+    </div>
+</header>

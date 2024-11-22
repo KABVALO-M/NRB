@@ -1,0 +1,32 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Your System Name{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    {% tailwind_css %}
+</head>
+
+<body class="bg-red-50 h-screen font-serif"> <!-- Changed background color to light red -->
+
+    <!-- Include Header -->
+    {% include 'core/partials/header.html' %}
+
+    <!-- Main Layout: Sidebar + Main Content -->
+    <div class="flex">
+        <!-- Include Sidebar -->
+        {% include 'core/partials/sidebar.html' %}
+
+        <!-- Main Content -->
+        <main class="flex-1 bg-gray-100 p-8 ml-64 mt-[64px] h-[calc(100vh-64px)] overflow-y-auto"> <!-- Scrollable content -->
+            {% block content %}
+            <!-- Default content goes here -->
+            {% endblock %}
+        </main>
+    </div>
+
+</body>
+</html>

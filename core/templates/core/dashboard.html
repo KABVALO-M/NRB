@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2 class="text-2xl font-bold text-gray-700 mb-4">Welcome to your Dashboard</h2>
+    <p class="text-gray-600">Here is an overview of your system.</p>
+
+    <!-- Statistics Section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div class="bg-blue-500 text-white shadow-md rounded-lg p-6">
+            <div class="flex items-center">
+                <i class="fas fa-users fa-2x mr-2"></i>
+                <h3 class="text-lg font-semibold">Total Citizens</h3>
+            </div>
+            <p class="text-2xl">{{ total_citizens }}</p>
+        </div>
+        <div class="bg-red-500 text-white shadow-md rounded-lg p-6">
+            <div class="flex items-center">
+                <i class="fas fa-skull fa-2x mr-2"></i>
+                <h3 class="text-lg font-semibold">Total Deceased</h3>
+            </div>
+            <p class="text-2xl">{{ total_deceased }}</p>
+        </div>
+        <div class="bg-green-500 text-white shadow-md rounded-lg p-6">
+            <div class="flex items-center">
+                <i class="fas fa-user-friends fa-2x mr-2"></i>
+                <h3 class="text-lg font-semibold">Total Users</h3>
+            </div>
+            <p class="text-2xl">{{ total_users }}</p>
+        </div>
+    </div>
+
+    <!-- Recent Activities Section -->
+    <div class="mt-8">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Recent Citizen Registrations</h3>
+            {% if recent_citizen_registrations %}
+                <ul class="list-disc ml-5">
+                    {% for citizen in recent_citizen_registrations %}
+                        <li>{{ citizen.full_name }} - Registered on {{ citizen.date_of_birth }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-gray-600">No recent citizen registrations.</p>
+            {% endif %}
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-6 mt-4">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Recent Deceased Registrations</h3>
+            {% if recent_deceased_registrations %}
+                <ul class="list-disc ml-5">
+                    {% for deceased in recent_deceased_registrations %}
+                        <li>{{ deceased.citizen.full_name }} - Died on {{ deceased.date_of_death }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-gray-600">No recent deceased registrations.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
